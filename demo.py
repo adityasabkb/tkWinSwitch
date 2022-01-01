@@ -29,7 +29,7 @@ l = set1.addWi(Label(text="this is screen 1"))
 #we use the following syntax
 set1.place(l,x=150,y=150)
 
-#note this items are supposed to be place but are not for that we will do set1.create at the end
+#note these widget are supposed to be place but are not for that we will do set1.create() at the end
 
 ############# MAKING THE WIDGET SET NUMBER 1##################
 
@@ -57,6 +57,17 @@ set2.grid(l2,1,0)
 
 #finally creating set1 as default start
 set1.create()
-
-
 root.mainloop()
+
+
+###	understanding create,dest methods and switch function
+
+#	the create method used as <set>.create() starst displaying every widget you have added and (placed/packed/gird)
+#	in the set.
+
+#	dest method used as <set>.dest() stops displaying the widgets of the particular set
+
+#	the switch function used as switch(<set A>,<set B>)
+#	does <set A>.dest() and <set B>.create()
+
+
