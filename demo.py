@@ -41,17 +41,22 @@ btn2 = set2.addWi(Button(root,text="button 2",command=lambda :switch(set2,set1))
 # btn2 is part of set2 therefore we did set2.addWi
 
 #you can also use grid and pack method 
-set2.grid(btn2,0,0)
-#or you could say set2.grid(btn2,row= 0,y = 0)
+set2.grid(btn2,row = 0,column = 0)
 
 l2 = set2.addWi(Label(text="this is screen 2 and uses grid"))
-set2.grid(l2,1,0)
+set2.grid(l2, row = 1,column = 0)
 
 
 # in case you wanted to pack a widget you colud do:
 # <set>.pack(<widget>,<extra arguments eg. fill = BOTH,expand = True,etc..>)
 #say i have setx and want to pack y with fill = BOTH and expand = TRUE, in that case I do:
 #setx.pack(y,fill = BOTH ,expand = TRUE)
+
+#to conclude i can say that to pack the things into the root window you can use the following syntax
+
+# <set>.<pack/place/grid>(<widget you want to pack>,**kwargs)
+#**kwagrs mean key word arguments like anchor,expand,fill,   x,y,  ,row, column etc... which you use in the basic syntax 
+
 
 ################################################
 
