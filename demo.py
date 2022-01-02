@@ -6,14 +6,19 @@ from tkWinSwitch import *
 
 root = Tk()
 root.geometry("500x500")
+
+# different pages have different widgets
+# so we treat them as a set of widget 
+# we are going to create 2 sets namely set1 and set2
 ############# MAKING THE WIDGET SET NUMBER 1##################
-set1 = wiSet()
+set1 = wiSet()  #wiSet() ~ widget set
 
                                         #button 1 has the functionality to switch from set1 to set2
 btn1 = set1.addWi(Button(root,text="button 1",command=lambda :switch(set1,set2) ) ) 
 
 #or you could do btn1 = Button(root,text="button 1",command = lambda :switch(set1,set2))
 #and then set1.addWi(btn1) 
+#both will have the same effect
 
 #set.addWi(Widget) tells the program that the given widget is part of set1 
 
@@ -29,9 +34,9 @@ l = set1.addWi(Label(text="this is screen 1"))
 #we use the following syntax
 set1.place(l,x=150,y=150)
 
-#note these widget are supposed to be place but are not for that we will do set1.create() at the end
+#note these widget are supposed to be place till now but are not for that we will do set1.create() at the end
 
-############# MAKING THE WIDGET SET NUMBER 1##################
+############# MAKING THE WIDGET SET NUMBER 2##################
 
 #created set2
 set2 = wiSet()
@@ -47,6 +52,14 @@ l2 = set2.addWi(Label(text="this is screen 2 and uses grid"))
 set2.grid(l2, row = 1,column = 0)
 
 
+################################################
+
+#finally creating set1 as default start
+set1.create()  #if you did set2.create() then set2 yould appear first on executing the program
+root.mainloop()
+
+#NOW EXECUTE THE PROGRAM THEN READ FURTHER EXPLANATION
+
 # in case you wanted to pack a widget you colud do:
 # <set>.pack(<widget>,<extra arguments eg. fill = BOTH,expand = True,etc..>)
 #say i have setx and want to pack y with fill = BOTH and expand = TRUE, in that case I do:
@@ -56,13 +69,6 @@ set2.grid(l2, row = 1,column = 0)
 
 # <set>.<pack/place/grid>(<widget you want to pack>,**kwargs)
 #**kwagrs mean key word arguments like anchor,expand,fill,   x,y,  ,row, column etc... which you use in the basic syntax 
-
-
-################################################
-
-#finally creating set1 as default start
-set1.create()
-root.mainloop()
 
 
 ###	understanding create,dest methods and switch function
