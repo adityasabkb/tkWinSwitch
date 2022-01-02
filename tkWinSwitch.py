@@ -8,10 +8,10 @@ class wiSet():
         self.wiList.append([widget,lambda :widget.pack(),lambda :widget.pack_forget()])
         return widget
 
-    def place(self,wi,x,y):
+    def place(self,wi,**kwargs):
         for i in self.wiList:
             if wi==i[0]:
-                i[1]=lambda :wi.place(x=x,y=y)
+                i[1]=lambda :wi.place(**kwargs)
                 i[2]=lambda :wi.place_forget()
     
     def pack(self,wi,**kwargs):
@@ -20,10 +20,10 @@ class wiSet():
                 i[1]=lambda :wi.pack(**kwargs)
                 i[2]=lambda :wi.pack_forget()
 
-    def grid(self,wi,r,c):
+    def grid(self,wi,**kwargs):
         for i in self.wiList:
             if wi==i[0]:
-                i[1]=lambda :wi.grid(row=r,column = c)
+                i[1]=lambda :wi.grid(**kwargs)
                 i[2]=lambda :wi.grid_forget()
     def create(self):
         for i in self.wiList:
